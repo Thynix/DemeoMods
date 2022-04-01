@@ -87,12 +87,14 @@
 
             var levelPropertiesRule = new LevelPropertiesModifiedRule(new Dictionary<string, int>
             {
-                { "FloorOneHealingFountains", 2 },
+                { "FloorOneHealingFountains", 0 },
                 { "FloorOneLootChests", 11 },
-                { "FloorTwoHealingFountains", 4 },
+                { "FloorTwoHealingFountains", 1 },
                 { "FloorTwoLootChests", 14 },
-                { "FloorThreeHealingFountains", 4 },
+                { "FloorThreeHealingFountains", 1 },
                 { "FloorThreeLootChests", 12 },
+                { "FloorOneEndZoneSpikeMaxBudget", 12 },
+                { "PacingSpikeSegmentFloorOneBudget", 12 },
             });
 
             var aoePotions = new AbilityAoeAdjustedRule(new Dictionary<AbilityKey, int>
@@ -115,7 +117,9 @@
                     BoardPieceId.Torch,
                     BoardPieceId.Torch,
                     BoardPieceId.Torch,
-                    BoardPieceId.Torch,
+                    BoardPieceId.HealingBeacon,
+                    BoardPieceId.HealingBeacon,
+                    BoardPieceId.HealingBeacon,
                     BoardPieceId.Torch,
                     BoardPieceId.Torch,
                 },
@@ -127,7 +131,7 @@
                     BoardPieceId.Torch,
                     BoardPieceId.Torch,
                     BoardPieceId.Torch,
-                    BoardPieceId.Torch,
+                    BoardPieceId.HealingBeacon,
                     BoardPieceId.Torch,
                     BoardPieceId.Torch,
                 },
@@ -136,13 +140,17 @@
                     BoardPieceId.Torch,
                     BoardPieceId.Torch,
                     BoardPieceId.Torch,
-                    BoardPieceId.VortexLamp,
+                    BoardPieceId.Torch,
+                    BoardPieceId.Torch,
+                    BoardPieceId.HealingBeacon,
+                    BoardPieceId.Torch,
                 },
             });
 
             var piecePieceTypeRule = new PiecePieceTypeListOverriddenRule(new Dictionary<BoardPieceId, List<PieceType>>
             {
                 { BoardPieceId.Torch, new List<PieceType> { PieceType.Prop, PieceType.UpdateFogOfWar, PieceType.ShowNameplate } },
+                { BoardPieceId.HealingBeacon, new List<PieceType> { PieceType.Prop, PieceType.Bot, PieceType.ShowNameplate } },
             });
 
             var abilityMaxRangeRule = new AbilityMaxRangeOverriddenRule(new Dictionary<AbilityKey, int>
@@ -165,7 +173,8 @@
                 abilityActionCostRule,
                 lampTypesRule,
                 piecePieceTypeRule,
-                abilityMaxRangeRule);
+                abilityMaxRangeRule,
+                new EnemyDoorOpeningDisabledRule(true));
         }
     }
 }
