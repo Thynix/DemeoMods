@@ -142,6 +142,23 @@ The [Settings Reference](../docs/SettingsReference.md) contains lists of all dif
   },
   ```
 
+- __AbilityMaxRangeOverridden__: Configures the max disance from Hero that spells can be cast.
+  - To configure:
+    - Specify the [AbilityKey](../docs/SettingsReference.md#abilitykeys) of the ability to modify.
+    - Specify the new integer for maxRange to use..
+
+  ###### _Example JSON config for AbilityMaxRangeOverridden_
+
+  ```json
+  {
+    "Rule": "AbilityMaxRangeOverridden",
+    "Config": {
+      "OilLamp": 4,
+      "GasLamp": 5,
+    }
+  },
+  ```
+
 - __AbilityRandomPieceList__: The randomPieceList for Abilities is adjusted
   - 🚧 _Skirmish-only - Does not work properly in multiplayer games._ 🚧
   - Some abilities (BeastWhisperer, RatBomb) have lists which are used to spawn random pieces.

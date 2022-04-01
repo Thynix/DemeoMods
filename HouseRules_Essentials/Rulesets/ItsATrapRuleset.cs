@@ -16,26 +16,46 @@
             {
                 new StartCardsModifiedRule.CardConfig { Card = AbilityKey.BoobyTrap, IsReplenishable = true },
                 new StartCardsModifiedRule.CardConfig { Card = AbilityKey.CourageShanty, IsReplenishable = true },
+                new StartCardsModifiedRule.CardConfig { Card = AbilityKey.OilLamp, IsReplenishable = false },
+                new StartCardsModifiedRule.CardConfig { Card = AbilityKey.GasLamp, IsReplenishable = false },
+                new StartCardsModifiedRule.CardConfig { Card = AbilityKey.IceLamp, IsReplenishable = false },
+                new StartCardsModifiedRule.CardConfig { Card = AbilityKey.VortexLamp, IsReplenishable = false },
             };
             var guardianCards = new List<StartCardsModifiedRule.CardConfig>
             {
                 new StartCardsModifiedRule.CardConfig { Card = AbilityKey.BoobyTrap, IsReplenishable = true },
                 new StartCardsModifiedRule.CardConfig { Card = AbilityKey.ReplenishArmor, IsReplenishable = true },
+                new StartCardsModifiedRule.CardConfig { Card = AbilityKey.OilLamp, IsReplenishable = false },
+                new StartCardsModifiedRule.CardConfig { Card = AbilityKey.GasLamp, IsReplenishable = false },
+                new StartCardsModifiedRule.CardConfig { Card = AbilityKey.IceLamp, IsReplenishable = false },
+                new StartCardsModifiedRule.CardConfig { Card = AbilityKey.VortexLamp, IsReplenishable = false },
             };
             var hunterCards = new List<StartCardsModifiedRule.CardConfig>
             {
                 new StartCardsModifiedRule.CardConfig { Card = AbilityKey.BoobyTrap, IsReplenishable = true },
                 new StartCardsModifiedRule.CardConfig { Card = AbilityKey.Arrow, IsReplenishable = true },
+                new StartCardsModifiedRule.CardConfig { Card = AbilityKey.OilLamp, IsReplenishable = false },
+                new StartCardsModifiedRule.CardConfig { Card = AbilityKey.GasLamp, IsReplenishable = false },
+                new StartCardsModifiedRule.CardConfig { Card = AbilityKey.IceLamp, IsReplenishable = false },
+                new StartCardsModifiedRule.CardConfig { Card = AbilityKey.VortexLamp, IsReplenishable = false },
             };
             var assassinCards = new List<StartCardsModifiedRule.CardConfig>
             {
                 new StartCardsModifiedRule.CardConfig { Card = AbilityKey.BoobyTrap, IsReplenishable = true },
                 new StartCardsModifiedRule.CardConfig { Card = AbilityKey.Sneak, IsReplenishable = true },
+                new StartCardsModifiedRule.CardConfig { Card = AbilityKey.OilLamp, IsReplenishable = false },
+                new StartCardsModifiedRule.CardConfig { Card = AbilityKey.GasLamp, IsReplenishable = false },
+                new StartCardsModifiedRule.CardConfig { Card = AbilityKey.IceLamp, IsReplenishable = false },
+                new StartCardsModifiedRule.CardConfig { Card = AbilityKey.VortexLamp, IsReplenishable = false },
             };
             var sorcererCards = new List<StartCardsModifiedRule.CardConfig>
             {
                 new StartCardsModifiedRule.CardConfig { Card = AbilityKey.BoobyTrap, IsReplenishable = true },
                 new StartCardsModifiedRule.CardConfig { Card = AbilityKey.Zap, IsReplenishable = true },
+                new StartCardsModifiedRule.CardConfig { Card = AbilityKey.OilLamp, IsReplenishable = false },
+                new StartCardsModifiedRule.CardConfig { Card = AbilityKey.GasLamp, IsReplenishable = false },
+                new StartCardsModifiedRule.CardConfig { Card = AbilityKey.IceLamp, IsReplenishable = false },
+                new StartCardsModifiedRule.CardConfig { Card = AbilityKey.VortexLamp, IsReplenishable = false },
             };
             var startingCardsRule = new StartCardsModifiedRule(new Dictionary<BoardPieceId, List<StartCardsModifiedRule.CardConfig>>
             {
@@ -48,11 +68,11 @@
 
             var allowedCardsRule = new CardAdditionOverriddenRule(new Dictionary<BoardPieceId, List<AbilityKey>>
             {
-                { BoardPieceId.HeroBard, new List<AbilityKey> { AbilityKey.PoisonBomb, AbilityKey.MagicBarrier, AbilityKey.OilLamp, AbilityKey.GasLamp, AbilityKey.IceLamp, AbilityKey.TheBehemoth, AbilityKey.RepeatingBallista } },
+                { BoardPieceId.HeroBard, new List<AbilityKey> { AbilityKey.PoisonBomb, AbilityKey.MagicBarrier, AbilityKey.OilLamp, AbilityKey.GasLamp, AbilityKey.IceLamp, AbilityKey.TheBehemoth, AbilityKey.RepeatingBallista, AbilityKey.Rejuvenation } },
                 { BoardPieceId.HeroGuardian, new List<AbilityKey> { AbilityKey.PoisonBomb, AbilityKey.MagicBarrier, AbilityKey.Bone, AbilityKey.Barricade, AbilityKey.OilLamp, AbilityKey.GasLamp, AbilityKey.IceLamp } },
-                { BoardPieceId.HeroHunter, new List<AbilityKey> { AbilityKey.PoisonBomb, AbilityKey.MagicBarrier, AbilityKey.Fireball, AbilityKey.PoisonedTip, AbilityKey.OilLamp, AbilityKey.GasLamp, AbilityKey.IceLamp } },
-                { BoardPieceId.HeroRogue, new List<AbilityKey> { AbilityKey.PoisonBomb, AbilityKey.Fireball, AbilityKey.Blink, AbilityKey.OilLamp, AbilityKey.GasLamp, AbilityKey.IceLamp, AbilityKey.RepeatingBallista } },
-                { BoardPieceId.HeroSorcerer, new List<AbilityKey> { AbilityKey.PoisonBomb, AbilityKey.Fireball, AbilityKey.SummonElemental, AbilityKey.OilLamp, AbilityKey.GasLamp, AbilityKey.IceLamp, AbilityKey.TheBehemoth } },
+                { BoardPieceId.HeroHunter, new List<AbilityKey> { AbilityKey.PoisonBomb, AbilityKey.MagicBarrier, AbilityKey.Rejuvenation, AbilityKey.PoisonedTip, AbilityKey.OilLamp, AbilityKey.GasLamp, AbilityKey.IceLamp } },
+                { BoardPieceId.HeroRogue, new List<AbilityKey> { AbilityKey.PoisonBomb, AbilityKey.Rejuvenation, AbilityKey.OilLamp, AbilityKey.GasLamp, AbilityKey.IceLamp, AbilityKey.RepeatingBallista } },
+                { BoardPieceId.HeroSorcerer, new List<AbilityKey> { AbilityKey.PoisonBomb, AbilityKey.Rejuvenation, AbilityKey.OilLamp, AbilityKey.GasLamp, AbilityKey.IceLamp, AbilityKey.TheBehemoth } },
             });
 
             var piecesAdjustedRule = new PieceConfigAdjustedRule(new List<PieceConfigAdjustedRule.PieceProperty>
@@ -62,6 +82,7 @@
                 new PieceConfigAdjustedRule.PieceProperty { Piece = BoardPieceId.HeroHunter, Property = "StartHealth", Value = 30 },
                 new PieceConfigAdjustedRule.PieceProperty { Piece = BoardPieceId.HeroRogue, Property = "StartHealth", Value = 30 },
                 new PieceConfigAdjustedRule.PieceProperty { Piece = BoardPieceId.HeroSorcerer, Property = "StartHealth", Value = 30 },
+                new PieceConfigAdjustedRule.PieceProperty { Piece = BoardPieceId.Torch, Property = "VisionRange", Value = 40 },
             });
 
             var levelPropertiesRule = new LevelPropertiesModifiedRule(new Dictionary<string, int>
@@ -79,6 +100,60 @@
                 { AbilityKey.StrengthPotion, 1 },
                 { AbilityKey.SwiftnessPotion, 1 },
             });
+
+            var abilityActionCostRule = new AbilityActionCostAdjustedRule(new Dictionary<AbilityKey, bool>
+            {
+                { AbilityKey.BoobyTrap, false },
+            });
+
+            var lampTypesRule = new LampTypesOverriddenRule(new LampTypesOverriddenRule.LampConfig
+            {
+                Floor1Lamps = new List<BoardPieceId>
+                {
+                    BoardPieceId.Torch,
+                    BoardPieceId.Torch,
+                    BoardPieceId.Torch,
+                    BoardPieceId.Torch,
+                    BoardPieceId.Torch,
+                    BoardPieceId.Torch,
+                    BoardPieceId.Torch,
+                    BoardPieceId.Torch,
+                },
+                Floor2Lamps = new List<BoardPieceId>
+                {
+                    BoardPieceId.Torch,
+                    BoardPieceId.Torch,
+                    BoardPieceId.Torch,
+                    BoardPieceId.Torch,
+                    BoardPieceId.Torch,
+                    BoardPieceId.Torch,
+                    BoardPieceId.Torch,
+                    BoardPieceId.Torch,
+                    BoardPieceId.Torch,
+                },
+                Floor3Lamps = new List<BoardPieceId>
+                {
+                    BoardPieceId.Torch,
+                    BoardPieceId.Torch,
+                    BoardPieceId.Torch,
+                    BoardPieceId.VortexLamp,
+                },
+            });
+
+            var piecePieceTypeRule = new PiecePieceTypeListOverriddenRule(new Dictionary<BoardPieceId, List<PieceType>>
+            {
+                { BoardPieceId.Torch, new List<PieceType> { PieceType.Prop, PieceType.UpdateFogOfWar, PieceType.ShowNameplate } },
+            });
+
+            var abilityMaxRangeRule = new AbilityMaxRangeOverriddenRule(new Dictionary<AbilityKey, int>
+            {
+                { AbilityKey.BoobyTrap, 5 },
+                { AbilityKey.OilLamp, 5 },
+                { AbilityKey.GasLamp, 5 },
+                { AbilityKey.IceLamp, 5 },
+                { AbilityKey.VortexLamp, 5 },
+            });
+
             return Ruleset.NewInstance(
                 name,
                 description,
@@ -86,7 +161,11 @@
                 allowedCardsRule,
                 piecesAdjustedRule,
                 levelPropertiesRule,
-                aoePotions);
+                aoePotions,
+                abilityActionCostRule,
+                lampTypesRule,
+                piecePieceTypeRule,
+                abilityMaxRangeRule);
         }
     }
 }
