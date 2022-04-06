@@ -68,11 +68,67 @@
 
             var allowedCardsRule = new CardAdditionOverriddenRule(new Dictionary<BoardPieceId, List<AbilityKey>>
             {
-                { BoardPieceId.HeroBard, new List<AbilityKey> { AbilityKey.PoisonBomb, AbilityKey.MagicBarrier, AbilityKey.OilLamp, AbilityKey.GasLamp, AbilityKey.IceLamp, AbilityKey.TheBehemoth, AbilityKey.VortexLamp, AbilityKey.HealingPotion } },
-                { BoardPieceId.HeroGuardian, new List<AbilityKey> { AbilityKey.PoisonBomb, AbilityKey.MagicBarrier, AbilityKey.Bone, AbilityKey.HealingPotion, AbilityKey.OilLamp, AbilityKey.GasLamp, AbilityKey.IceLamp, AbilityKey.VortexLamp } },
-                { BoardPieceId.HeroHunter, new List<AbilityKey> { AbilityKey.PoisonBomb, AbilityKey.MagicBarrier, AbilityKey.HealingPotion, AbilityKey.PoisonedTip, AbilityKey.OilLamp, AbilityKey.GasLamp, AbilityKey.IceLamp } },
-                { BoardPieceId.HeroRogue, new List<AbilityKey> { AbilityKey.PoisonBomb, AbilityKey.HealingPotion, AbilityKey.OilLamp, AbilityKey.GasLamp, AbilityKey.IceLamp, AbilityKey.RepeatingBallista } },
-                { BoardPieceId.HeroSorcerer, new List<AbilityKey> { AbilityKey.PoisonBomb, AbilityKey.HealingPotion, AbilityKey.OilLamp, AbilityKey.GasLamp, AbilityKey.IceLamp, AbilityKey.TheBehemoth, AbilityKey.Vortex } },
+                {
+                    BoardPieceId.HeroBard, new List<AbilityKey>
+                    {
+                        AbilityKey.PoisonBomb,
+                        AbilityKey.MagicBarrier,
+                        AbilityKey.OilLamp,
+                        AbilityKey.GasLamp,
+                        AbilityKey.IceLamp,
+                        AbilityKey.TheBehemoth,
+                        AbilityKey.VortexLamp,
+                        AbilityKey.HealingPotion,
+                    }
+                },
+                {
+                    BoardPieceId.HeroGuardian, new List<AbilityKey>
+                    {
+                        AbilityKey.PoisonBomb,
+                        AbilityKey.MagicBarrier,
+                        AbilityKey.Bone,
+                        AbilityKey.HealingPotion,
+                        AbilityKey.OilLamp,
+                        AbilityKey.GasLamp,
+                        AbilityKey.IceLamp,
+                        AbilityKey.VortexLamp,
+                    }
+                },
+                {
+                    BoardPieceId.HeroHunter, new List<AbilityKey>
+                    {
+                        AbilityKey.PoisonBomb,
+                        AbilityKey.MagicBarrier,
+                        AbilityKey.HealingPotion,
+                        AbilityKey.PoisonedTip,
+                        AbilityKey.OilLamp,
+                        AbilityKey.GasLamp,
+                        AbilityKey.IceLamp,
+                    }
+                },
+                {
+                    BoardPieceId.HeroRogue, new List<AbilityKey>
+                    {
+                        AbilityKey.PoisonBomb,
+                        AbilityKey.HealingPotion,
+                        AbilityKey.OilLamp,
+                        AbilityKey.GasLamp,
+                        AbilityKey.IceLamp,
+                        AbilityKey.RepeatingBallista,
+                    }
+                },
+                {
+                    BoardPieceId.HeroSorcerer, new List<AbilityKey>
+                    {
+                        AbilityKey.PoisonBomb,
+                        AbilityKey.HealingPotion,
+                        AbilityKey.OilLamp,
+                        AbilityKey.GasLamp,
+                        AbilityKey.IceLamp,
+                        AbilityKey.TheBehemoth,
+                        AbilityKey.Vortex,
+                    }
+                },
             });
 
             var piecesAdjustedRule = new PieceConfigAdjustedRule(new List<PieceConfigAdjustedRule.PieceProperty>
