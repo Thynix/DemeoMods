@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
     using DataKeys;
+    using global::Types;
     using HouseRules.Essentials.Rules;
     using HouseRules.Types;
 
@@ -10,7 +11,7 @@
         internal static Ruleset Create()
         {
             const string name = "It's A Trap!";
-            const string description = "All the tools you need to build traps for your enemies, but not much else.";
+            const string description = "Everything you need to build devious traps for your enemies, but try not to kill your friends.";
 
             var bardCards = new List<StartCardsModifiedRule.CardConfig>
             {
@@ -79,6 +80,9 @@
                         AbilityKey.TheBehemoth,
                         AbilityKey.VortexLamp,
                         AbilityKey.HealingPotion,
+                        AbilityKey.RevealPath,
+                        AbilityKey.Torch,
+                        AbilityKey.Sneak,
                     }
                 },
                 {
@@ -92,6 +96,9 @@
                         AbilityKey.GasLamp,
                         AbilityKey.IceLamp,
                         AbilityKey.VortexLamp,
+                        AbilityKey.RevealPath,
+                        AbilityKey.Torch,
+                        AbilityKey.Sneak,
                     }
                 },
                 {
@@ -104,6 +111,9 @@
                         AbilityKey.OilLamp,
                         AbilityKey.GasLamp,
                         AbilityKey.IceLamp,
+                        AbilityKey.RevealPath,
+                        AbilityKey.Torch,
+                        AbilityKey.Sneak,
                     }
                 },
                 {
@@ -115,6 +125,8 @@
                         AbilityKey.GasLamp,
                         AbilityKey.IceLamp,
                         AbilityKey.RepeatingBallista,
+                        AbilityKey.RevealPath,
+                        AbilityKey.Torch,
                     }
                 },
                 {
@@ -127,6 +139,8 @@
                         AbilityKey.IceLamp,
                         AbilityKey.TheBehemoth,
                         AbilityKey.Vortex,
+                        AbilityKey.Torch,
+                        AbilityKey.Sneak,
                     }
                 },
             });
@@ -169,68 +183,77 @@
             {
                 Floor1Lamps = new List<BoardPieceId>
                 {
-                    BoardPieceId.Torch,
-                    BoardPieceId.Torch,
-                    BoardPieceId.Torch,
-                    BoardPieceId.Torch,
-                    BoardPieceId.Torch,
+                    BoardPieceId.GasLamp,
+                    BoardPieceId.OilLamp,
+                    BoardPieceId.VortexLamp,
+                    BoardPieceId.GasLamp,
+                    BoardPieceId.OilLamp,
+                    BoardPieceId.VortexLamp,
+                    BoardPieceId.OilLamp,
+                    BoardPieceId.OilLamp,
                     BoardPieceId.HealingBeacon,
                     BoardPieceId.HealingBeacon,
-                    BoardPieceId.Torch,
-                    BoardPieceId.Torch,
                     BoardPieceId.Torch,
                 },
                 Floor2Lamps = new List<BoardPieceId>
                 {
-                    BoardPieceId.Torch,
-                    BoardPieceId.Torch,
-                    BoardPieceId.Torch,
-                    BoardPieceId.Torch,
-                    BoardPieceId.Torch,
-                    BoardPieceId.Torch,
+                    BoardPieceId.GasLamp,
+                    BoardPieceId.GasLamp,
+                    BoardPieceId.GasLamp,
+                    BoardPieceId.GasLamp,
+                    BoardPieceId.GasLamp,
+                    BoardPieceId.GasLamp,
+                    BoardPieceId.GasLamp,
+                    BoardPieceId.OilLamp,
+                    BoardPieceId.OilLamp,
                     BoardPieceId.HealingBeacon,
-                    BoardPieceId.Torch,
+                    BoardPieceId.HealingBeacon,
                     BoardPieceId.Torch,
                 },
                 Floor3Lamps = new List<BoardPieceId>
                 {
-                    BoardPieceId.Torch,
-                    BoardPieceId.Torch,
-                    BoardPieceId.Torch,
-                    BoardPieceId.Torch,
-                    BoardPieceId.Torch,
+                    BoardPieceId.OilLamp,
+                    BoardPieceId.IceLamp,
+                    BoardPieceId.VortexLamp,
+                    BoardPieceId.OilLamp,
+                    BoardPieceId.IceLamp,
+                    BoardPieceId.VortexLamp,
                     BoardPieceId.HealingBeacon,
-                    BoardPieceId.Torch,
                 },
             });
 
             var piecePieceTypeRule = new PiecePieceTypeListOverriddenRule(new Dictionary<BoardPieceId, List<PieceType>>
             {
                 { BoardPieceId.Torch, new List<PieceType> { PieceType.Prop, PieceType.UpdateFogOfWar, PieceType.ShowNameplate } },
+                { BoardPieceId.EyeOfAvalon, new List<PieceType> { PieceType.Prop, PieceType.UpdateFogOfWar, PieceType.Immovable, PieceType.ShowHealthbar, PieceType.ShowNameplate } },
                 { BoardPieceId.HealingBeacon, new List<PieceType> { PieceType.Prop, PieceType.Bot, PieceType.ShowNameplate } },
             });
 
-            var abilityMaxRangeRule = new AbilityMaxRangeOverriddenRule(new Dictionary<AbilityKey, int>
+            var statusEffectRule = new StatusEffectConfigRule(new List<StatusEffectData>
             {
-                { AbilityKey.BoobyTrap, 5 },
-                { AbilityKey.OilLamp, 5 },
-                { AbilityKey.GasLamp, 5 },
-                { AbilityKey.IceLamp, 5 },
-                { AbilityKey.VortexLamp, 5 },
+                new StatusEffectData
+                {
+                    effectStateType = EffectStateType.Stealthed,
+                    durationTurns = 5,
+                    damagePerTurn = 0,
+                    stacks = false,
+                    clearOnNewLevel = false,
+                    tickWhen = StatusEffectsConfig.TickWhen.StartTurn,
+                },
             });
 
             return Ruleset.NewInstance(
                 name,
                 description,
-                startingCardsRule,
-                allowedCardsRule,
-                piecesAdjustedRule,
-                levelPropertiesRule,
-                aoePotions,
                 abilityActionCostRule,
+                allowedCardsRule,
+                aoePotions,
                 lampTypesRule,
+                levelPropertiesRule,
+                piecesAdjustedRule,
                 piecePieceTypeRule,
-                abilityMaxRangeRule,
+                startingCardsRule,
+                statusEffectRule,
                 new EnemyDoorOpeningDisabledRule(true));
         }
     }
